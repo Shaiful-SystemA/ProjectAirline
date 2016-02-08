@@ -55,6 +55,114 @@
                 width: 113px;
                 text-align: left;
             }
+            .auto-style17 {
+                width: 191px;
+            }
+            .auto-style18 {
+                width: 175px;
+            }
+            .auto-style19 {
+                width: 191px;
+                height: 16px;
+            }
+            .auto-style21 {
+                width: 175px;
+                height: 16px;
+            }
+            .auto-style22 {
+                width: 191px;
+                height: 32px;
+            }
+            .auto-style24 {
+                width: 175px;
+                height: 32px;
+            }
+            .auto-style25 {
+                height: 32px;
+            }
+            .auto-style26 {
+                width: 147px;
+            }
+            .auto-style27 {
+                width: 147px;
+                height: 16px;
+            }
+            .auto-style28 {
+                width: 147px;
+                height: 32px;
+            }
+            .auto-style29 {
+                width: 161px;
+                text-align: left;
+            }
+            .auto-style30 {
+                width: 174px;
+                text-align: left;
+            }
+            .auto-style31 {
+                width: 151px;
+            }
+            .auto-style32 {
+                width: 168px;
+                text-align: left;
+            }
+            .auto-style33 {
+                width: 151px;
+                height: 22px;
+            }
+            .auto-style34 {
+                width: 161px;
+                text-align: left;
+                height: 22px;
+            }
+            .auto-style35 {
+                width: 174px;
+                text-align: left;
+                height: 22px;
+            }
+            .auto-style36 {
+                width: 168px;
+                text-align: left;
+                height: 22px;
+            }
+            .auto-style37 {
+                width: 151px;
+                height: 20px;
+            }
+            .auto-style38 {
+                width: 161px;
+                text-align: left;
+                height: 20px;
+            }
+            .auto-style39 {
+                width: 174px;
+                text-align: left;
+                height: 20px;
+            }
+            .auto-style40 {
+                width: 168px;
+                text-align: left;
+                height: 20px;
+            }
+            .auto-style41 {
+                width: 151px;
+                height: 41px;
+            }
+            .auto-style42 {
+                width: 161px;
+                text-align: left;
+                height: 41px;
+            }
+            .auto-style43 {
+                width: 174px;
+                text-align: left;
+                height: 41px;
+            }
+            .auto-style44 {
+                width: 168px;
+                text-align: left;
+                height: 41px;
+            }
         </style>
 </head>
 <body>
@@ -63,7 +171,7 @@
 	<div class="shell">
 		<!-- Logo + Top Nav -->
 		<div id="top">
-			<h1><a href="#">Wiki Airlines</a></h1>
+			<h1><a href="#">Wiki Airlines</a> Adminstration</h1>
 			<div id="top-navigation">
 				Welcome <a href="#"><strong>Administrator</strong></a>
 				<span>|</span>
@@ -191,8 +299,9 @@
                                 <td class="auto-style7">&nbsp;</td>
                                 <td class="auto-style8">
                                     <asp:DropDownList ID="StatusDropdown1" runat="server">
-                                        <asp:ListItem>Availabe</asp:ListItem>
+                                        <asp:ListItem>Available</asp:ListItem>
                                         <asp:ListItem>Not Available</asp:ListItem>
+                                        <asp:ListItem>Delay</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                                 <td class="auto-style9">Status</td>
@@ -242,28 +351,124 @@
 			    <br />
                     <center>
 
-        Flight Number :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        From City :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        To City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-        <br />
-        <br/>
-        Date of departure:&nbsp;&nbsp; <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                         <br />
-        <br />
-        Departure Time:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <table style="width:100%;">
+                            <tr>
+                                <td class="auto-style31">&nbsp;</td>
+                                <td class="auto-style29" style="text-align: left">Flight Number :</td>
+                                <td class="auto-style30" style="text-align: left">
+        <asp:TextBox ID="TextBox1" runat="server" Width="98px"></asp:TextBox>
+                                </td>
+                                <td class="auto-style32">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style31">&nbsp;</td>
+                                <td class="auto-style29">From City :</td>
+                                <td class="auto-style30">
+                                    <asp:DropDownList ID="FromCityDropDown" runat="server" Width="105px">
+                                        <asp:ListItem></asp:ListItem>
+                                        <asp:ListItem>Shanghai</asp:ListItem>
+                                        <asp:ListItem>Bangkok</asp:ListItem>
+                                        <asp:ListItem>Taipei</asp:ListItem>
+                                        <asp:ListItem>Singapore</asp:ListItem>
+                                        <asp:ListItem>Cochin</asp:ListItem>
+                                        <asp:ListItem>Delhi</asp:ListItem>
+                                        <asp:ListItem>Bangalore</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                                <td class="auto-style32" style="text-align: left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style31">&nbsp;</td>
+                                <td class="auto-style29">To City :</td>
+                                <td class="auto-style30">
+                                    <asp:DropDownList ID="SearchToCityDropDown" runat="server" Width="106px">
+                                        <asp:ListItem></asp:ListItem>
+                                        <asp:ListItem>Bangkok</asp:ListItem>
+                                        <asp:ListItem>Taipei</asp:ListItem>
+                                        <asp:ListItem>Delhi</asp:ListItem>
+                                        <asp:ListItem>Singapore</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                                <td class="auto-style32">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style31">&nbsp;</td>
+                                <td class="auto-style29">Date of Departure :</td>
+                                <td class="auto-style30"> <asp:TextBox ID="TextBox2" runat="server" Width="97px"></asp:TextBox>
+                                    <asp:ImageButton ID="ImageButton1" runat="server" Height="16px" ImageUrl="~/css/images/calendaralt.png" OnClick="ImageButton1_Click" Width="29px" />
+                                </td>
+                                <td class="auto-style32">
+                                    <asp:Calendar ID="Calendar1" runat="server" BackColor="#FFFFCC" BorderColor="#FFCC66" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#663399" Height="200px" OnSelectionChanged="Calendar1_SelectionChanged" ShowGridLines="True" Visible="False" Width="220px">
+                                        <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
+                                        <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
+                                        <OtherMonthDayStyle ForeColor="#CC9966" />
+                                        <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
+                                        <SelectorStyle BackColor="#FFCC66" />
+                                        <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt" ForeColor="#FFFFCC" />
+                                        <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
+                                    </asp:Calendar>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style31">&nbsp;</td>
+                                <td class="auto-style29">Departure Time :</td>
+                                <td class="auto-style30">
+        <asp:TextBox ID="TextBox3" runat="server" placeholder="00:00"></asp:TextBox>
+                                </td>
+                                <td class="auto-style32">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style31">&nbsp;</td>
+                                <td class="auto-style29">Arrival Time :</td>
+                                <td class="auto-style30">
+                        <asp:TextBox ID="TextBox6" runat="server" placeholder="00:00"></asp:TextBox>
+                                </td>
+                                <td class="auto-style32">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style31">&nbsp;</td>
+                                <td class="auto-style29">Seats :</td>
+                                <td class="auto-style30">
+                        <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                                </td>
+                                <td class="auto-style32">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style33"></td>
+                                <td class="auto-style34">Status :</td>
+                                <td class="auto-style35">
+                                    <asp:DropDownList ID="SearchStatusDropdown" runat="server" Width="102px">
+                                        <asp:ListItem></asp:ListItem>
+                                        <asp:ListItem>Available</asp:ListItem>
+                                        <asp:ListItem>Not Available</asp:ListItem>
+                                        <asp:ListItem>Delay</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                                <td class="auto-style36">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style37"></td>
+                                <td class="auto-style38">Price</td>
+                                <td class="auto-style39">
+                                    <asp:TextBox ID="TextBox8" runat="server" Width="44px"></asp:TextBox>
+                                </td>
+                                <td class="auto-style40"></td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style41"></td>
+                                <td class="auto-style42"></td>
+                                <td class="auto-style43">
         <asp:Button ID="Button2" runat="server" Text="Search" OnClick="Button2_Click" />
+                                </td>
+                                <td class="auto-style44"></td>
+                            </tr>
+                        </table>
+                        <br />
+                        <br />
         <br />
         <br />
                 			
@@ -287,8 +492,13 @@
                  <asp:BoundField DataField="FlightNo" HeaderText="Flight No" />
                 <asp:BoundField DataField="FromCity" HeaderText="From City" />
                 <asp:BoundField DataField="ToCity" HeaderText="To City" />
-                <asp:BoundField DataField="DateofDeparture" HeaderText="Date of Departure" />
-                <asp:BoundField DataField="DepartureTime" HeaderText="DepartureTime" />
+                <asp:BoundField DataField="DateofDeparture" HeaderText="Date of Departure" HtmlEncode="False" DataFormatString = "{0:d}"/>
+                <asp:BoundField DataField="DepartureTime" HeaderText="DepartureTime" HtmlEncode="False" DataFormatString = "{0:hh\:mm}"/>
+                 <asp:BoundField DataField="ArrivalTime" HeaderText="ArrivalTime"  HtmlEncode="False" DataFormatString = "{0:hh\:mm}"/>
+                  <asp:BoundField DataField="Seats" HeaderText="Seats" />
+                   <asp:BoundField DataField="Status" HeaderText="Status" />
+                   <asp:BoundField DataField="price" HeaderText="Status" />
+
                   <asp:CommandField ButtonType="Button" SelectText="Update Flights" ShowSelectButton="True">
                   <ItemStyle ForeColor="#993366" />
                   </asp:CommandField>
@@ -310,43 +520,155 @@
 						<h2>Update Flights</h2>
 					</div>
 					<!-- End Box Head -->
-			    <br />
- <center>
-        From<br />
+			        <center>
+        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center>
+                    <table style="width:100%;">
+                        <tr>
+                            <td class="auto-style17">&nbsp;</td>
+                            <td class="auto-style26">Flight Number</td>
+                            <td class="auto-style18">
+        <asp:TextBox ID="FlightNOTextbox" runat="server" ></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style19"></td>
+                            <td class="auto-style27">From City</td>
+                            <td class="auto-style21">
         <asp:TextBox ID="FromTextbox" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        To<br />
+                            </td>
+                            <td class="auto-style1">
+                                <asp:DropDownList ID="UpdateFromCity" runat="server">
+                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem>Shanghai</asp:ListItem>
+                                    <asp:ListItem>Bangkok</asp:ListItem>
+                                    <asp:ListItem>Taipei</asp:ListItem>
+                                    <asp:ListItem>Singapore</asp:ListItem>
+                                    <asp:ListItem>Cochin</asp:ListItem>
+                                    <asp:ListItem>Delhi</asp:ListItem>
+                                    <asp:ListItem>Bangalore </asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style17">&nbsp;</td>
+                            <td class="auto-style26">To City</td>
+                            <td class="auto-style18">
         <asp:TextBox ID="ToTextbox" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        <br />
-        <br />
-        Depart Date<br />
-        <asp:TextBox ID="DepartureDateTextbox" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        Departure Time<br />
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="UpdateToCityDropDown" runat="server">
+                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem>Bangkok</asp:ListItem>
+                                    <asp:ListItem>Taipei</asp:ListItem>
+                                    <asp:ListItem>Delhi</asp:ListItem>
+                                    <asp:ListItem>Singapore</asp:ListItem>
+                                    <asp:ListItem>Cochin</asp:ListItem>
+                                    <asp:ListItem>Shanghai</asp:ListItem>
+                                    <asp:ListItem>Bangalore</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style17">&nbsp;</td>
+                            <td class="auto-style26">Date Of Departure </td>
+                            <td class="auto-style18">
+        <asp:TextBox ID="DepartureDateTextbox" runat="server" Width="96px"></asp:TextBox>
+                                <asp:ImageButton ID="ImageButton2" runat="server" Height="16px" ImageUrl="~/css/images/calendaralt.png" OnClick="ImageButton2_Click" Width="27px" />
+                            </td>
+                            <td>
+                                <asp:Calendar ID="Calendar2" runat="server" BackColor="#FFFFCC" BorderColor="#FFCC66" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#663399" Height="200px" OnSelectionChanged="Calendar2_SelectionChanged" ShowGridLines="True" Visible="False" Width="220px">
+                                    <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
+                                    <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
+                                    <OtherMonthDayStyle ForeColor="#CC9966" />
+                                    <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
+                                    <SelectorStyle BackColor="#FFCC66" />
+                                    <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt" ForeColor="#FFFFCC" />
+                                    <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
+                                </asp:Calendar>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style17">&nbsp;</td>
+                            <td class="auto-style26">Departure Time</td>
+                            <td class="auto-style18">
         <asp:TextBox ID="DepartureTimeTextbox" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        <br />
-        Flight No<br />
-        <asp:TextBox ID="FlightNOTextbox" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        <br />
-        <br />
-        <asp:Button ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style17">&nbsp;</td>
+                            <td class="auto-style26">Arrival Time</td>
+                            <td class="auto-style18">
+        <asp:TextBox ID="ArrivalTimeTextbox" runat="server"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style17">&nbsp;</td>
+                            <td class="auto-style26">Seats</td>
+                            <td class="auto-style18">
+        <asp:TextBox ID="SeatTextbox" runat="server" Width="45px"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style17">&nbsp;</td>
+                            <td class="auto-style26">Status</td>
+                            <td class="auto-style18">
+        <asp:TextBox ID="StatusTextbox" runat="server"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="UpdateStatusDrop" runat="server">
+                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem>Available</asp:ListItem>
+                                    <asp:ListItem>Not Available</asp:ListItem>
+                                    <asp:ListItem>Delay</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style17">&nbsp;</td>
+                            <td class="auto-style26">Price</td>
+                            <td class="auto-style18">
+        <asp:TextBox ID="PriceTextbox" runat="server"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style17">&nbsp;</td>
+                            <td class="auto-style26">&nbsp;</td>
+                            <td class="auto-style18">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style22"></td>
+                            <td class="auto-style28"></td>
+                            <td class="auto-style24">
         <asp:Button ID="Update" runat="server" OnClick="Update_Click" Text="Update" />
-        <br />
-        <br />
+                            </td>
+                            <td class="auto-style25">
+        <asp:Button ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" />
+                            </td>
+                        </tr>
+                    </table>
+                    <center>
+                        <center>
+                            <center>
+                                <center>
+                                    <center>
+                                        <center>
         <br />
         <p>
             &nbsp;</p>
         <p>
             &nbsp;</p>
+           </center>
+           </center>
+           </center>
+           </center>
+           </center>
            </center>
                     	</div>
  

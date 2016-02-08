@@ -29,8 +29,10 @@ namespace ProjectAirline
                     ToTextbox.Text = flight.ToCity;
                     DepartureDateTextbox.Text = flight.DateofDeparture.ToString();
                     DepartureTimeTextbox.Text = flight.DepartureTime.ToString();
+                    SeatTextbox.Text = flight.Seats.ToString();
                     FlightNOTextbox.Text = flight.FlightNo;
-
+                    StatusTextbox.Text = flight.Seats.ToString();
+                    PriceTextbox.Text = flight.price.ToString();
                 }
 
 
@@ -47,11 +49,21 @@ namespace ProjectAirline
                 var flight = cntx.FlightDetails.FirstOrDefault(m => m.FlightNo == FlightNOTextbox.Text);
                 if (flight != null)
                 {
-                    flight.FromCity = FromTextbox.Text;
-                    flight.ToCity =ToTextbox.Text  ;
+                    //flight.FromCity = FromTextbox.Text;
+                    //flight.ToCity =ToTextbox.Text  ;
                     flight.DateofDeparture= Convert.ToDateTime(DepartureDateTextbox.Text);
+                    flight.ArrivalTime = TimeSpan.Parse(ArrivalTimeTextbox.Text);
+
                     flight.DepartureTime = TimeSpan.Parse(DepartureTimeTextbox.Text);
+                    flight.Seats = Convert.ToInt32(SeatTextbox.Text);
+                   // flight.Status = StatusTextbox.Text;
+                    flight.price = Convert.ToDecimal(PriceTextbox.Text);
                     FlightNOTextbox.Text = flight.FlightNo;
+
+                    flight.FromCity = UpdateFromCity.Text;
+                    flight.ToCity = UpdateToCityDropDown.Text;
+                    flight.Status = UpdateStatusDrop.Text;
+
                     cntx.SaveChanges();
                     ClearFields();
                 }
@@ -70,7 +82,13 @@ namespace ProjectAirline
             DepartureDateTextbox.Text = string.Empty;
             DepartureTimeTextbox.Text = string.Empty;
             FlightNOTextbox.Text = string.Empty;
-
+            ArrivalTimeTextbox.Text = string.Empty;
+            SeatTextbox.Text = string.Empty;
+            StatusTextbox.Text = string.Empty;
+            PriceTextbox.Text = string.Empty;
+            UpdateFromCity.Text = string.Empty;
+            UpdateToCityDropDown.Text = string.Empty;
+            UpdateStatusDrop.Text = string.Empty;
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,14 +100,18 @@ namespace ProjectAirline
             //DepartureTimeTextbox.Text = GridView1.SelectedRow.Cells[4].Text;
             //FlightNOTextbox.Text = GridView1.SelectedRow.Cells[5].Text;
 
-            FromTextbox.Text = GridView1.SelectedRow.Cells[2].Text;
-            ToTextbox.Text = GridView1.SelectedRow.Cells[3].Text;
+          //  FromTextbox.Text = GridView1.SelectedRow.Cells[2].Text;
+            //ToTextbox.Text = GridView1.SelectedRow.Cells[3].Text;
             DepartureDateTextbox.Text = GridView1.SelectedRow.Cells[4].Text;
             DepartureTimeTextbox.Text = GridView1.SelectedRow.Cells[5].Text;
             FlightNOTextbox.Text = GridView1.SelectedRow.Cells[1].Text;
-
-
-
+            ArrivalTimeTextbox.Text = GridView1.SelectedRow.Cells[6].Text;
+            SeatTextbox.Text = GridView1.SelectedRow.Cells[7].Text;
+            //StatusTextbox.Text = GridView1.SelectedRow.Cells[8].Text;
+            PriceTextbox.Text = GridView1.SelectedRow.Cells[9].Text;
+            UpdateFromCity.Text = GridView1.SelectedRow.Cells[2].Text;
+            UpdateToCityDropDown.Text = GridView1.SelectedRow.Cells[3].Text;
+            UpdateStatusDrop.Text = GridView1.SelectedRow.Cells[8].Text;
 
 
         }
@@ -100,8 +122,14 @@ namespace ProjectAirline
             FlightDetail Flight = new FlightDetail();
 
             Flight.FlightNo =TextBox1.Text;
-            Flight.FromCity = TextBox4.Text;
-            Flight.ToCity = TextBox5.Text;
+         //   Flight.FromCity = TextBox4.Text;
+        //    Flight.ToCity = TextBox5.Text;
+         //   Flight.Status = TextBox9.Text;
+
+            Flight.FromCity = FromCityDropDown.Text;
+            Flight.ToCity = SearchToCityDropDown.Text;
+            Flight.Status = SearchStatusDropdown.Text;
+
 
             if (!string.IsNullOrEmpty(TextBox2.Text))
             {
@@ -113,9 +141,24 @@ namespace ProjectAirline
                 Flight.DepartureTime = TimeSpan.Parse(TextBox3.Text);
             }
 
+            if (!string.IsNullOrEmpty(TextBox6.Text))
+            {
+                Flight.ArrivalTime = TimeSpan.Parse(TextBox6.Text);
+            }
+
+            if (!string.IsNullOrEmpty(TextBox7.Text))
+            {
+                Flight.Seats = Int32.Parse(TextBox7.Text);
+            }
+
+            if (!string.IsNullOrEmpty(TextBox8.Text))
+            {
+                Flight.price = Decimal.Parse(TextBox8.Text);
+            }
+
             var result = from S in db.FlightDetails
-                         where (S.FlightNo == Flight.FlightNo || S.FromCity == Flight.FromCity || S.DateofDeparture == Flight.DateofDeparture || S.DepartureTime==Flight.DepartureTime || S.ToCity==Flight.ToCity)
-                         select new { S.FlightNo, S.FromCity, S.ToCity, S.DateofDeparture, S.DepartureTime };
+                         where (S.FlightNo == Flight.FlightNo || S.FromCity == Flight.FromCity || S.DateofDeparture == Flight.DateofDeparture || S.DepartureTime==Flight.DepartureTime || S.ToCity==Flight.ToCity || S.ArrivalTime==Flight.ArrivalTime || S.Seats==Flight.Seats || S.Status==Flight.Status || S.price==Flight.price )
+                         select new { S.FlightNo, S.FromCity, S.ToCity, S.DateofDeparture, S.DepartureTime,S.ArrivalTime,S.Seats,S.Status,S.price};
 
 
 
@@ -148,7 +191,7 @@ namespace ProjectAirline
         {
             AirlineEntities1 db = new AirlineEntities1();
             var result = from S in db.FlightDetails
-                         select new { S.FlightNo, S.FromCity, S.ToCity, S.DateofDeparture, S.DepartureTime };
+                         select new { S.FlightNo, S.FromCity, S.ToCity, S.DateofDeparture, S.DepartureTime ,S.ArrivalTime,S.Seats,S.Status,S.price};
 
            GridView1.DataSource = result.ToList();
           GridView1.DataBind();
@@ -210,6 +253,30 @@ namespace ProjectAirline
               //  flight.DateofDeparture = Convert.ToDateTime(DepartureDateTextbox.Text);
                // flight.DepartureTime = TimeSpan.Parse(DepartureTimeTextbox.Text);
             }
+
+        }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            Calendar1.Visible = true;
+        }
+
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            TextBox2.Text = Calendar1.SelectedDate.ToShortDateString();
+            Calendar1.Visible = false;
+        }
+
+        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+        {
+            Calendar2.Visible = true;
+
+        }
+
+        protected void Calendar2_SelectionChanged(object sender, EventArgs e)
+        {
+            DepartureDateTextbox.Text = Calendar2.SelectedDate.ToShortDateString();
+            Calendar2.Visible = false;
 
         }
 
