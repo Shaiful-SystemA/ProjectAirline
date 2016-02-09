@@ -1,7 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Test.aspx.cs" Inherits="ProjectAirline.Test" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Test.aspx.cs" Inherits="ProjectAirline.Test" MaintainScrollPositionOnPostback="true" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -42,19 +41,6 @@
                 width: 113px;
                 text-align: left;
             }
-            .auto-style10 {
-                height: 6px;
-            }
-            .auto-style11 {
-                height: 6px;
-                width: 210px;
-                text-align: left;
-            }
-            .auto-style12 {
-                height: 6px;
-                width: 113px;
-                text-align: left;
-            }
             .auto-style17 {
                 width: 191px;
             }
@@ -86,14 +72,12 @@
             .auto-style27 {
                 width: 147px;
                 height: 16px;
+                font-size: small;
+                font-weight: bold;
             }
             .auto-style28 {
                 width: 147px;
                 height: 32px;
-            }
-            .auto-style29 {
-                width: 161px;
-                text-align: left;
             }
             .auto-style30 {
                 width: 174px;
@@ -114,6 +98,7 @@
                 width: 161px;
                 text-align: left;
                 height: 22px;
+                font-size: small;
             }
             .auto-style35 {
                 width: 174px;
@@ -133,6 +118,7 @@
                 width: 161px;
                 text-align: left;
                 height: 20px;
+                font-size: small;
             }
             .auto-style39 {
                 width: 174px;
@@ -163,9 +149,116 @@
                 text-align: left;
                 height: 41px;
             }
+
+                 .GvGrid:hover
+        {
+            background-color: #FFEB9C;
+            border-top: solid;
+            color:#9C6500;
+        }
+    
+            .auto-style45 {
+                height: 23px;
+            }
+            .auto-style46 {
+                height: 23px;
+                width: 210px;
+                text-align: left;
+            }
+            .auto-style47 {
+                height: 23px;
+                width: 113px;
+                text-align: left;
+            }
+            .auto-style49 {
+                height: 33px;
+                width: 210px;
+                text-align: left;
+            }
+            .auto-style50 {
+                height: 33px;
+                width: 113px;
+                text-align: left;
+            }
+            .auto-style51 {
+                height: 33px;
+            }
+    
+            .auto-style52 {
+                font-size: small;
+            }
+    
+            .auto-style53 {
+                width: 147px;
+                font-size: small;
+                font-weight: bold;
+            }
+    
+            .auto-style54 {
+                width: 161px;
+                text-align: left;
+                font-size: small;
+            }
+    
+            .auto-style57 {
+                height: 14px;
+                width: 205px;
+            }
+            .auto-style58 {
+                height: 23px;
+                width: 205px;
+            }
+            .auto-style59 {
+                height: 33px;
+                width: 205px;
+                text-align: left;
+            }
+            .auto-style60 {
+                width: 205px;
+                text-align: left;
+            }
+            .auto-style61 {
+                width: 205px;
+                height: 16px;
+            }
+    
         </style>
+
 </head>
+    
+<script type = "text/javascript">
+    window.onload = function () {
+        var scrollY = parseInt('<%=Request.Form["scrollY"] %>');
+        if (!isNaN(scrollY)) {
+            window.scrollTo(0, scrollY);
+        }
+    };
+    window.onscroll = function () {
+        var scrollY = document.body.scrollTop;
+        if (scrollY == 0) {
+            if (window.pageYOffset) {
+                scrollY = window.pageYOffset;
+            }
+            else {
+                scrollY = (document.body.parentElement) ? document.body.parentElement.scrollTop : 0;
+            }
+        }
+        if (scrollY > 0) {
+            var input = document.getElementById("scrollY");
+            if (input == null) {
+                input = document.createElement("input");
+                input.setAttribute("type", "hidden");
+                input.setAttribute("id", "scrollY");
+                input.setAttribute("name", "scrollY");
+                document.forms[0].appendChild(input);
+            }
+            input.value = scrollY;
+        }
+    };
+</script>
+
 <body>
+
     <!-- Header -->
 <div id="header">
 	<div class="shell">
@@ -214,7 +307,7 @@
               <div id="content">
 
     <form id="form1" runat="server" >
-  
+
 
              <!--Create Box -->
 				<div class="box">
@@ -229,15 +322,14 @@
                         <br />
                         <table dir="rtl" style="width:100%;">
                             <tr>
-                                <td>&nbsp;</td>
+                                <td class="auto-style60">&nbsp;</td>
                                 <td class="auto-style2">
-                                    <asp:TextBox ID="FlightNumber1TextBox" runat="server"></asp:TextBox>
-                                </td>
+                                    &nbsp;</td>
                                 <td class="auto-style4" style="text-align: left">Flight Number</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td class="auto-style1"></td>
+                                <td class="auto-style61"></td>
                                 <td class="auto-style3">
                                     <asp:DropDownList ID="FromCity1DropDown" runat="server">
                                         <asp:ListItem>Singapore</asp:ListItem>
@@ -251,7 +343,7 @@
                                 <td class="auto-style1"></td>
                             </tr>
                             <tr>
-                                <td>&nbsp;</td>
+                                <td class="auto-style60">&nbsp;</td>
                                 <td class="auto-style2">
                                     <asp:DropDownList ID="ToCity1DropDown" runat="server">
                                         <asp:ListItem>Singapore</asp:ListItem>
@@ -264,7 +356,7 @@
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td>&nbsp;</td>
+                                <td class="auto-style60">&nbsp;</td>
                                 <td class="auto-style2">
                                     <asp:TextBox ID="DateOfDeparture1Textbox" runat="server"></asp:TextBox>
                                 </td>
@@ -272,7 +364,9 @@
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td>&nbsp;</td>
+                                <td class="auto-style60">
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="DepartureTime1TextBox" ErrorMessage="Invalid Time" ForeColor="#FF3300" style="text-align: left" ValidationExpression="^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$"></asp:RegularExpressionValidator>
+                                </td>
                                 <td class="auto-style2">
                                     <asp:TextBox ID="DepartureTime1TextBox" runat="server"></asp:TextBox>
                                 </td>
@@ -280,7 +374,7 @@
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td>&nbsp;</td>
+                                <td class="auto-style60">&nbsp;</td>
                                 <td class="auto-style2">
                                     <asp:TextBox ID="ArrivalTime1Texbox" runat="server"></asp:TextBox>
                                 </td>
@@ -288,7 +382,7 @@
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td class="auto-style7"></td>
+                                <td class="auto-style57"></td>
                                 <td class="auto-style8">
                                     <asp:TextBox ID="Seats1TextBox" runat="server"></asp:TextBox>
                                 </td>
@@ -296,7 +390,7 @@
                                 <td class="auto-style7"></td>
                             </tr>
                             <tr>
-                                <td class="auto-style7">&nbsp;</td>
+                                <td class="auto-style57">&nbsp;</td>
                                 <td class="auto-style8">
                                     <asp:DropDownList ID="StatusDropdown1" runat="server">
                                         <asp:ListItem>Available</asp:ListItem>
@@ -308,23 +402,32 @@
                                 <td class="auto-style7"></td>
                             </tr>
                             <tr>
-                                <td class="auto-style10"></td>
-                                <td class="auto-style11">
+                                <td class="auto-style58"></td>
+                                <td class="auto-style46">
                                     <asp:TextBox ID="Price1TextBox" runat="server"></asp:TextBox>
                                 </td>
-                                <td class="auto-style12">Price</td>
-                                <td class="auto-style10"></td>
+                                <td class="auto-style47">Price</td>
+                                <td class="auto-style45"></td>
                             </tr>
                             <tr>
-                                <td class="auto-style10"></td>
-                                <td class="auto-style11">
-                                    <asp:Button ID="BtnCreateFlight1" runat="server" OnClick="BtnCreateFlight1_Click" Text="Submit" />
+                                <td class="auto-style59">&nbsp;</td>
+                                <td class="auto-style49">
+                                    <asp:Button ID="BtnCreateFlight1" runat="server" OnClick="BtnCreateFlight1_Click" Text="Submit" CssClass="button"  />
                                 </td>
-                                <td class="auto-style12">&nbsp;</td>
-                                <td class="auto-style10"></td>
+                                <td class="auto-style50"></td>
+                                <td class="auto-style51"></td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style59">&nbsp;</td>
+                                <td class="auto-style49">
+                                    <asp:Label ID="ForInputError" runat="server"></asp:Label>
+                                </td>
+                                <td class="auto-style50">&nbsp;</td>
+                                <td class="auto-style51">&nbsp;</td>
                             </tr>
                         </table>
                         <br />
+                        <asp:TextBox ID="FlightNumber1TextBox" runat="server"></asp:TextBox>
                         <br />
                         <br />
                         <br />
@@ -355,17 +458,17 @@
                         <table style="width:100%;">
                             <tr>
                                 <td class="auto-style31">&nbsp;</td>
-                                <td class="auto-style29" style="text-align: left">Flight Number :</td>
+                                <td class="auto-style54" style="text-align: left"><strong>Flight Number </strong></td>
                                 <td class="auto-style30" style="text-align: left">
-        <asp:TextBox ID="TextBox1" runat="server" Width="98px"></asp:TextBox>
+        <asp:TextBox ID="TextBox1" runat="server" Width="64px" class="field size3"></asp:TextBox>
                                 </td>
                                 <td class="auto-style32">&nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="auto-style31">&nbsp;</td>
-                                <td class="auto-style29">From City :</td>
+                                <td class="auto-style54"><strong>From City </strong></td>
                                 <td class="auto-style30">
-                                    <asp:DropDownList ID="FromCityDropDown" runat="server" Width="105px">
+                                    <asp:DropDownList ID="FromCityDropDown" runat="server" Width="117px" class="field size3">
                                         <asp:ListItem></asp:ListItem>
                                         <asp:ListItem>Shanghai</asp:ListItem>
                                         <asp:ListItem>Bangkok</asp:ListItem>
@@ -381,9 +484,9 @@
                             </tr>
                             <tr>
                                 <td class="auto-style31">&nbsp;</td>
-                                <td class="auto-style29">To City :</td>
+                                <td class="auto-style54"><strong>To City </strong></td>
                                 <td class="auto-style30">
-                                    <asp:DropDownList ID="SearchToCityDropDown" runat="server" Width="106px">
+                                    <asp:DropDownList ID="SearchToCityDropDown" runat="server" Width="116px" class="field size3">
                                         <asp:ListItem></asp:ListItem>
                                         <asp:ListItem>Bangkok</asp:ListItem>
                                         <asp:ListItem>Taipei</asp:ListItem>
@@ -396,8 +499,8 @@
                             </tr>
                             <tr>
                                 <td class="auto-style31">&nbsp;</td>
-                                <td class="auto-style29">Date of Departure :</td>
-                                <td class="auto-style30"> <asp:TextBox ID="TextBox2" runat="server" Width="97px"></asp:TextBox>
+                                <td class="auto-style54"><strong>Date of Departure </strong></td>
+                                <td class="auto-style30"> <asp:TextBox ID="TextBox2" runat="server" Width="115px" class="field size3"></asp:TextBox>
                                     <asp:ImageButton ID="ImageButton1" runat="server" Height="16px" ImageUrl="~/css/images/calendaralt.png" OnClick="ImageButton1_Click" Width="29px" />
                                 </td>
                                 <td class="auto-style32">
@@ -414,33 +517,33 @@
                             </tr>
                             <tr>
                                 <td class="auto-style31">&nbsp;</td>
-                                <td class="auto-style29">Departure Time :</td>
+                                <td class="auto-style54"><strong>Departure Time </strong></td>
                                 <td class="auto-style30">
-        <asp:TextBox ID="TextBox3" runat="server" placeholder="00:00"></asp:TextBox>
+        <asp:TextBox ID="TextBox3" runat="server" placeholder="00:00" class="field size3" Width="88px"></asp:TextBox>
                                 </td>
                                 <td class="auto-style32">&nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="auto-style31">&nbsp;</td>
-                                <td class="auto-style29">Arrival Time :</td>
+                                <td class="auto-style54"><strong>Arrival Time </strong></td>
                                 <td class="auto-style30">
-                        <asp:TextBox ID="TextBox6" runat="server" placeholder="00:00"></asp:TextBox>
+                        <asp:TextBox ID="TextBox6" runat="server" placeholder="00:00" class="field size3" Width="88px"></asp:TextBox>
                                 </td>
                                 <td class="auto-style32">&nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="auto-style31">&nbsp;</td>
-                                <td class="auto-style29">Seats :</td>
+                                <td class="auto-style54"><strong>Seats </strong></td>
                                 <td class="auto-style30">
-                        <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBox7" runat="server" class="field size3" Width="46px"></asp:TextBox>
                                 </td>
                                 <td class="auto-style32">&nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="auto-style33"></td>
-                                <td class="auto-style34">Status :</td>
+                                <td class="auto-style34"><strong>Status</strong> </td>
                                 <td class="auto-style35">
-                                    <asp:DropDownList ID="SearchStatusDropdown" runat="server" Width="102px">
+                                    <asp:DropDownList ID="SearchStatusDropdown" runat="server" Width="118px" class="field size3">
                                         <asp:ListItem></asp:ListItem>
                                         <asp:ListItem>Available</asp:ListItem>
                                         <asp:ListItem>Not Available</asp:ListItem>
@@ -452,9 +555,9 @@
                             </tr>
                             <tr>
                                 <td class="auto-style37"></td>
-                                <td class="auto-style38">Price</td>
+                                <td class="auto-style38"><strong>Price (SGD)</strong> </td>
                                 <td class="auto-style39">
-                                    <asp:TextBox ID="TextBox8" runat="server" Width="44px"></asp:TextBox>
+                                    <asp:TextBox ID="TextBox8" runat="server" Width="44px" class="field size3"></asp:TextBox>
                                 </td>
                                 <td class="auto-style40"></td>
                             </tr>
@@ -462,7 +565,7 @@
                                 <td class="auto-style41"></td>
                                 <td class="auto-style42"></td>
                                 <td class="auto-style43">
-        <asp:Button ID="Button2" runat="server" Text="Search" OnClick="Button2_Click" />
+        <asp:Button ID="Button2" runat="server" Text="Search" OnClick="Button2_Click" CssClass="button" />
                                 </td>
                                 <td class="auto-style44"></td>
                             </tr>
@@ -477,7 +580,7 @@
 </div>
 	<!-- Search END Box -->
 
-
+    
   <!--Flight Schedule Box -->
         <div class="box">
             					<!-- Box Head -->
@@ -486,26 +589,34 @@
 					</div>
 					<!-- End Box Head -->
 	  <br />
-
-        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" style="text-align:center" pagesize="15" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging1" AutoGenerateSelectButton="True" >
+ 
+        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" style="text-align:center" pagesize="15" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging1" Width="697px" RowStyle-CssClass="GvGrid" >
               <Columns>
-                 <asp:BoundField DataField="FlightNo" HeaderText="Flight No" />
-                <asp:BoundField DataField="FromCity" HeaderText="From City" />
-                <asp:BoundField DataField="ToCity" HeaderText="To City" />
-                <asp:BoundField DataField="DateofDeparture" HeaderText="Date of Departure" HtmlEncode="False" DataFormatString = "{0:d}"/>
+                      <asp:TemplateField HeaderText="  Index    ">   
+         <ItemTemplate>
+                 <%# Container.DataItemIndex + 1 %>   
+         </ItemTemplate>
+     </asp:TemplateField>
+                 <asp:BoundField DataField="FlightNo" HeaderText=" Flight No " />
+                <asp:BoundField DataField="FromCity" HeaderText=" From City " />
+                <asp:BoundField DataField="ToCity" HeaderText=" To City " />
+                <asp:BoundField DataField="DateofDeparture" HeaderText="Departure Date" HtmlEncode="False" DataFormatString = "{0:d}"/>
                 <asp:BoundField DataField="DepartureTime" HeaderText="DepartureTime" HtmlEncode="False" DataFormatString = "{0:hh\:mm}"/>
                  <asp:BoundField DataField="ArrivalTime" HeaderText="ArrivalTime"  HtmlEncode="False" DataFormatString = "{0:hh\:mm}"/>
                   <asp:BoundField DataField="Seats" HeaderText="Seats" />
                    <asp:BoundField DataField="Status" HeaderText="Status" />
-                   <asp:BoundField DataField="price" HeaderText="Status" />
+                   <asp:BoundField DataField="price" HeaderText="Price" />
 
-                  <asp:CommandField ButtonType="Button" SelectText="Update Flights" ShowSelectButton="True">
+                  <asp:CommandField ButtonType="Button" SelectText="Update" ShowSelectButton="True">
+                      <ControlStyle CssClass="button" />
                   <ItemStyle ForeColor="#993366" />
                   </asp:CommandField>
             </Columns>
+              <RowStyle CssClass="GvGrid" />
         </asp:GridView>
-                
-        </div>
+                        </div>
+
+       
 
   <!-- END Flight Schedule Box -->
 
@@ -526,20 +637,19 @@
                     <table style="width:100%;">
                         <tr>
                             <td class="auto-style17">&nbsp;</td>
-                            <td class="auto-style26">Flight Number</td>
+                            <td class="auto-style53">Flight Number </td>
                             <td class="auto-style18">
-        <asp:TextBox ID="FlightNOTextbox" runat="server" ></asp:TextBox>
+        <asp:TextBox ID="FlightNOTextbox" runat="server" class="field size3" Width="64px"></asp:TextBox>
                             </td>
-                            <td>&nbsp;</td>
+                            <td>
+        <asp:TextBox ID="ToTextbox" runat="server" class="field size3"></asp:TextBox>
+                            </td>
                         </tr>
                         <tr>
                             <td class="auto-style19"></td>
-                            <td class="auto-style27">From City</td>
+                            <td class="auto-style27">From City </td>
                             <td class="auto-style21">
-        <asp:TextBox ID="FromTextbox" runat="server"></asp:TextBox>
-                            </td>
-                            <td class="auto-style1">
-                                <asp:DropDownList ID="UpdateFromCity" runat="server">
+                                <asp:DropDownList ID="UpdateFromCity" runat="server" class="field size3" Width="115px">
                                     <asp:ListItem></asp:ListItem>
                                     <asp:ListItem>Shanghai</asp:ListItem>
                                     <asp:ListItem>Bangkok</asp:ListItem>
@@ -550,15 +660,15 @@
                                     <asp:ListItem>Bangalore </asp:ListItem>
                                 </asp:DropDownList>
                             </td>
+                            <td class="auto-style1">
+        <asp:TextBox ID="FromTextbox" runat="server"></asp:TextBox>
+                            </td>
                         </tr>
                         <tr>
                             <td class="auto-style17">&nbsp;</td>
-                            <td class="auto-style26">To City</td>
+                            <td class="auto-style53">To City </td>
                             <td class="auto-style18">
-        <asp:TextBox ID="ToTextbox" runat="server"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:DropDownList ID="UpdateToCityDropDown" runat="server">
+                                <asp:DropDownList ID="UpdateToCityDropDown" runat="server" class="field size3" Width="115px">
                                     <asp:ListItem></asp:ListItem>
                                     <asp:ListItem>Bangkok</asp:ListItem>
                                     <asp:ListItem>Taipei</asp:ListItem>
@@ -569,13 +679,15 @@
                                     <asp:ListItem>Bangalore</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
+                            <td>
+                                &nbsp;</td>
                         </tr>
                         <tr>
                             <td class="auto-style17">&nbsp;</td>
-                            <td class="auto-style26">Date Of Departure </td>
+                            <td class="auto-style53">Date Of Departure </td>
                             <td class="auto-style18">
-        <asp:TextBox ID="DepartureDateTextbox" runat="server" Width="96px"></asp:TextBox>
-                                <asp:ImageButton ID="ImageButton2" runat="server" Height="16px" ImageUrl="~/css/images/calendaralt.png" OnClick="ImageButton2_Click" Width="27px" />
+        <asp:TextBox ID="DepartureDateTextbox" runat="server" Width="115px" class="field size3"></asp:TextBox>
+                                &nbsp;<asp:ImageButton ID="ImageButton2" runat="server" Height="16px" ImageUrl="~/css/images/calendaralt.png" OnClick="ImageButton2_Click" Width="27px" />
                             </td>
                             <td>
                                 <asp:Calendar ID="Calendar2" runat="server" BackColor="#FFFFCC" BorderColor="#FFCC66" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#663399" Height="200px" OnSelectionChanged="Calendar2_SelectionChanged" ShowGridLines="True" Visible="False" Width="220px">
@@ -591,50 +703,51 @@
                         </tr>
                         <tr>
                             <td class="auto-style17">&nbsp;</td>
-                            <td class="auto-style26">Departure Time</td>
+                            <td class="auto-style53">Departure Time </td>
                             <td class="auto-style18">
-        <asp:TextBox ID="DepartureTimeTextbox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="DepartureTimeTextbox" runat="server" class="field size3" Width="87px"></asp:TextBox>
                             </td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td class="auto-style17">&nbsp;</td>
-                            <td class="auto-style26">Arrival Time</td>
+                            <td class="auto-style53">Arrival Time </td>
                             <td class="auto-style18">
-        <asp:TextBox ID="ArrivalTimeTextbox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="ArrivalTimeTextbox" runat="server" class="field size3" Width="87px"></asp:TextBox>
                             </td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td class="auto-style17">&nbsp;</td>
-                            <td class="auto-style26">Seats</td>
+                            <td class="auto-style53">Seats </td>
                             <td class="auto-style18">
-        <asp:TextBox ID="SeatTextbox" runat="server" Width="45px"></asp:TextBox>
+        <asp:TextBox ID="SeatTextbox" runat="server" Width="45px" class="field size3"></asp:TextBox>
                             </td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td class="auto-style17">&nbsp;</td>
-                            <td class="auto-style26">Status</td>
+                            <td class="auto-style53">Status </td>
                             <td class="auto-style18">
-        <asp:TextBox ID="StatusTextbox" runat="server"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:DropDownList ID="UpdateStatusDrop" runat="server">
+                                <asp:DropDownList ID="UpdateStatusDrop" runat="server" class="field size3">
                                     <asp:ListItem></asp:ListItem>
                                     <asp:ListItem>Available</asp:ListItem>
                                     <asp:ListItem>Not Available</asp:ListItem>
                                     <asp:ListItem>Delay</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
+                            <td>
+                                &nbsp;</td>
                         </tr>
                         <tr>
                             <td class="auto-style17">&nbsp;</td>
-                            <td class="auto-style26">Price</td>
+                            <td class="auto-style52"><strong>Price </strong></td>
                             <td class="auto-style18">
-        <asp:TextBox ID="PriceTextbox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="PriceTextbox" runat="server" class="field size3" Width="45px"></asp:TextBox>
                             </td>
-                            <td>&nbsp;</td>
+                            <td>
+        <asp:TextBox ID="StatusTextbox" runat="server"></asp:TextBox>
+                            </td>
                         </tr>
                         <tr>
                             <td class="auto-style17">&nbsp;</td>
@@ -646,7 +759,17 @@
                             <td class="auto-style22"></td>
                             <td class="auto-style28"></td>
                             <td class="auto-style24">
-        <asp:Button ID="Update" runat="server" OnClick="Update_Click" Text="Update" />
+
+                                <asp:Button ID="UpdateDelete" runat="server" OnClick="UpdateDelete_Click" Text="Delete  " OnClientClick="if ( !confirm('Are you sure you want to delete ? ')) return false;" CssClass="button" Width="69px"  />
+
+                            </td>
+                            <td class="auto-style25"></td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style22"></td>
+                            <td class="auto-style28"></td>
+                            <td class="auto-style24">
+        <asp:Button ID="Update" runat="server" OnClick="Update_Click" Text="Update" CssClass="button"  />
                             </td>
                             <td class="auto-style25">
         <asp:Button ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" />

@@ -22,15 +22,6 @@ namespace ProjectAirline {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// FlightNumber1TextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FlightNumber1TextBox;
-        
-        /// <summary>
         /// FromCity1DropDown control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace ProjectAirline {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox DateOfDeparture1Textbox;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
         /// DepartureTime1TextBox control.
@@ -110,6 +110,24 @@ namespace ProjectAirline {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnCreateFlight1;
+        
+        /// <summary>
+        /// ForInputError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ForInputError;
+        
+        /// <summary>
+        /// FlightNumber1TextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FlightNumber1TextBox;
         
         /// <summary>
         /// TextBox1 control.
@@ -238,13 +256,13 @@ namespace ProjectAirline {
         protected global::System.Web.UI.WebControls.TextBox FlightNOTextbox;
         
         /// <summary>
-        /// FromTextbox control.
+        /// ToTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FromTextbox;
+        protected global::System.Web.UI.WebControls.TextBox ToTextbox;
         
         /// <summary>
         /// UpdateFromCity control.
@@ -256,13 +274,13 @@ namespace ProjectAirline {
         protected global::System.Web.UI.WebControls.DropDownList UpdateFromCity;
         
         /// <summary>
-        /// ToTextbox control.
+        /// FromTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ToTextbox;
+        protected global::System.Web.UI.WebControls.TextBox FromTextbox;
         
         /// <summary>
         /// UpdateToCityDropDown control.
@@ -328,15 +346,6 @@ namespace ProjectAirline {
         protected global::System.Web.UI.WebControls.TextBox SeatTextbox;
         
         /// <summary>
-        /// StatusTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox StatusTextbox;
-        
-        /// <summary>
         /// UpdateStatusDrop control.
         /// </summary>
         /// <remarks>
@@ -353,6 +362,24 @@ namespace ProjectAirline {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PriceTextbox;
+        
+        /// <summary>
+        /// StatusTextbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox StatusTextbox;
+        
+        /// <summary>
+        /// UpdateDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UpdateDelete;
         
         /// <summary>
         /// Update control.

@@ -15,6 +15,9 @@ namespace ProjectAirline
             {
                 BindGridView();
             }
+
+            this.MaintainScrollPositionOnPostBack = true;
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -213,47 +216,56 @@ namespace ProjectAirline
 
         protected void BtnCreateFlight1_Click(object sender, EventArgs e)
         {
-
-            using(AirlineEntities1 cntx = new AirlineEntities1())
+            try
             {
-                FlightDetail addFlight = new FlightDetail();
+                using (AirlineEntities1 cntx = new AirlineEntities1())
+                {
+                    FlightDetail addFlight = new FlightDetail();
 
-                addFlight.FlightNo = FlightNumber1TextBox.Text;
-                addFlight.FromCity = FromCity1DropDown.Text;
-                addFlight.ToCity = ToCity1DropDown.Text;
-                if (DateOfDeparture1Textbox.Text !=string.Empty)
-                {
-                    addFlight.DateofDeparture = Convert.ToDateTime(DateOfDeparture1Textbox.Text);
-                }
-                if (DepartureTime1TextBox.Text != string.Empty)
-                {
-                    addFlight.DepartureTime = TimeSpan.Parse(DepartureTime1TextBox.Text);
-                }
-                if (ArrivalTime1Texbox.Text != string.Empty)
-                {
-                    addFlight.ArrivalTime = TimeSpan.Parse(ArrivalTime1Texbox.Text);
-                }
-                if (Seats1TextBox.Text != string.Empty)
-                {
-                    addFlight.Seats = Convert.ToInt32(Seats1TextBox.Text);
-                }
-                if (StatusDropdown1.Text != string.Empty)
-                {
-                    addFlight.Status = StatusDropdown1.Text;
-                }
-                if (Price1TextBox.Text != string.Empty)
-                {
-                    addFlight.price = Convert.ToDecimal(Price1TextBox.Text);
-                }
-                //cntx.FlightDetail.AddObject(addFlight);
-                cntx.FlightDetails.Add(addFlight);
-               // cntx.AddToFlightDetails(addFlight);
-                cntx.SaveChanges();
+                    addFlight.FlightNo = FlightNumber1TextBox.Text;
+                    addFlight.FromCity = FromCity1DropDown.Text;
+                    addFlight.ToCity = ToCity1DropDown.Text;
+                    if (DateOfDeparture1Textbox.Text != string.Empty)
+                    {
+                        addFlight.DateofDeparture = Convert.ToDateTime(DateOfDeparture1Textbox.Text);
+                    }
+                    if (DepartureTime1TextBox.Text != string.Empty)
+                    {
+                        addFlight.DepartureTime = TimeSpan.Parse(DepartureTime1TextBox.Text);
+                    }
+                    if (ArrivalTime1Texbox.Text != string.Empty)
+                    {
+                        addFlight.ArrivalTime = TimeSpan.Parse(ArrivalTime1Texbox.Text);
+                    }
+                    if (Seats1TextBox.Text != string.Empty)
+                    {
+                        addFlight.Seats = Convert.ToInt32(Seats1TextBox.Text);
+                    }
+                    if (StatusDropdown1.Text != string.Empty)
+                    {
+                        addFlight.Status = StatusDropdown1.Text;
+                    }
+                    if (Price1TextBox.Text != string.Empty)
+                    {
+                        addFlight.price = Convert.ToDecimal(Price1TextBox.Text);
+                    }
+                    //cntx.FlightDetail.AddObject(addFlight);
+                    cntx.FlightDetails.Add(addFlight);
+                    // cntx.AddToFlightDetails(addFlight);
+                    cntx.SaveChanges();
 
-              //  flight.DateofDeparture = Convert.ToDateTime(DepartureDateTextbox.Text);
-               // flight.DepartureTime = TimeSpan.Parse(DepartureTimeTextbox.Text);
+                    //  flight.DateofDeparture = Convert.ToDateTime(DepartureDateTextbox.Text);
+                    // flight.DepartureTime = TimeSpan.Parse(DepartureTimeTextbox.Text);
+                }
             }
-
+            catch (Exception ex)
+            {
+                // Log the exception                      
+                ForInputError.Text = "Invalid Input Field + Please Check your input field";
+            }
+            finally
+            {
+            }  
         }
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
@@ -278,6 +290,23 @@ namespace ProjectAirline
             DepartureDateTextbox.Text = Calendar2.SelectedDate.ToShortDateString();
             Calendar2.Visible = false;
 
+        }
+
+        protected void UpdateDelete_Click(object sender, EventArgs e)
+        {
+                        using (AirlineEntities1 cntx = new AirlineEntities1())
+            {
+                var flight = cntx.FlightDetails.FirstOrDefault(m => m.FlightNo == FlightNOTextbox.Text);
+                if (flight != null)
+                {
+                   // cntx.Delete(data);
+                    cntx.FlightDetails.Remove(flight);
+
+                    cntx.SaveChanges();
+                    ClearFields();
+                }
+
+                }
         }
 
     }
