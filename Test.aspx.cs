@@ -94,6 +94,19 @@ namespace ProjectAirline
             UpdateStatusDrop.Text = string.Empty;
         }
 
+        private void ClearFields2()
+        {
+  FlightNumber1TextBox.Text = string.Empty;
+FromCity1DropDown.Text = string.Empty;
+ToCity1DropDown.Text = string.Empty;
+DateOfDeparture1Textbox.Text = string.Empty;
+DepartureTime1TextBox.Text = string.Empty;
+ArrivalTime1Texbox.Text = string.Empty;
+Seats1TextBox.Text = string.Empty;
+StatusDropdown1.Text = string.Empty;
+Price1TextBox.Text = string.Empty;
+        }
+
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
                                 
@@ -253,6 +266,10 @@ namespace ProjectAirline
                     cntx.FlightDetails.Add(addFlight);
                     // cntx.AddToFlightDetails(addFlight);
                     cntx.SaveChanges();
+                    ClearFields2();
+                   // NewFlight.Text = "New Flight Added";
+                        NewFlight.Visible = true;
+                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
 
                     //  flight.DateofDeparture = Convert.ToDateTime(DepartureDateTextbox.Text);
                     // flight.DepartureTime = TimeSpan.Parse(DepartureTimeTextbox.Text);
@@ -307,6 +324,28 @@ namespace ProjectAirline
                 }
 
                 }
+        }
+
+        protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
+        {
+            Calendar3.Visible = true;
+        }
+
+        protected void Calendar3_SelectionChanged(object sender, EventArgs e)
+        {
+            DateOfDeparture1Textbox.Text = Calendar3.SelectedDate.ToShortDateString();
+            Calendar3.Visible = false;
+        }
+
+        protected void Calendar3_SelectionChanged1(object sender, EventArgs e)
+        {
+            DateOfDeparture1Textbox.Text = Calendar3.SelectedDate.ToShortDateString();
+            Calendar3.Visible = false;
+        }
+
+        protected void CreateClear_Click(object sender, EventArgs e)
+        {
+            ClearFields2();
         }
 
     }
