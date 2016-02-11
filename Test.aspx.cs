@@ -17,62 +17,80 @@ namespace ProjectAirline
             }
 
             this.MaintainScrollPositionOnPostBack = true;
+            
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
+        //protected void Button1_Click(object sender, EventArgs e)
+        //{
 
-            using (AirlineEntities1 cntx = new AirlineEntities1())
-            {
-                var flight = cntx.FlightDetails.FirstOrDefault(m => m.FlightNo == FlightNOTextbox.Text);
-                if(flight !=null)
-                {
-                    FromTextbox.Text = flight.FromCity;
-                    ToTextbox.Text = flight.ToCity;
-                    DepartureDateTextbox.Text = flight.DateofDeparture.ToString();
-                    DepartureTimeTextbox.Text = flight.DepartureTime.ToString();
-                    SeatTextbox.Text = flight.Seats.ToString();
-                    FlightNOTextbox.Text = flight.FlightNo;
-                    StatusTextbox.Text = flight.Seats.ToString();
-                    PriceTextbox.Text = flight.price.ToString();
-                }
+        //    using (AirlineEntities1 cntx = new AirlineEntities1())
+        //    {
+        //        var flight = cntx.FlightDetails.FirstOrDefault(m => m.FlightNo == FlightNOTextbox.Text);
+        //        if(flight !=null)
+        //        {
+        //            //FromTextbox.Text = flight.FromCity;
+        //            //ToTextbox.Text = flight.ToCity;
+        //            DepartureDateTextbox.Text = flight.DateofDeparture.ToString();
+        //            DepartureTimeTextbox.Text = flight.DepartureTime.ToString();
+        //            SeatTextbox.Text = flight.Seats.ToString();
+        //            FlightNOTextbox.Text = flight.FlightNo;
+        //            //StatusTextbox.Text = flight.Seats.ToString();
+        //            PriceTextbox.Text = flight.price.ToString();
+        //        }
 
 
-            }
+        //    }
 
-        }
+        //}
 
         protected void Update_Click(object sender, EventArgs e)
         {
+            
 
-
-            using (AirlineEntities1 cntx = new AirlineEntities1())
+            try
             {
-                var flight = cntx.FlightDetails.FirstOrDefault(m => m.FlightNo == FlightNOTextbox.Text);
-                if (flight != null)
+
+                using (AirlineEntities1 cntx = new AirlineEntities1())
                 {
-                    //flight.FromCity = FromTextbox.Text;
-                    //flight.ToCity =ToTextbox.Text  ;
-                    flight.DateofDeparture= Convert.ToDateTime(DepartureDateTextbox.Text);
-                    flight.ArrivalTime = TimeSpan.Parse(ArrivalTimeTextbox.Text);
+                    var flight = cntx.FlightDetails.FirstOrDefault(m => m.FlightNo == FlightNOTextbox.Text);
+                    if (flight != null)
+                    {
+                        //flight.FromCity = FromTextbox.Text;
+                        //flight.ToCity =ToTextbox.Text  ;
+                        flight.DateofDeparture = Convert.ToDateTime(DepartureDateTextbox.Text);
+                        flight.ArrivalTime = TimeSpan.Parse(ArrivalTimeTextbox.Text);
 
-                    flight.DepartureTime = TimeSpan.Parse(DepartureTimeTextbox.Text);
-                    flight.Seats = Convert.ToInt32(SeatTextbox.Text);
-                   // flight.Status = StatusTextbox.Text;
-                    flight.price = Convert.ToDecimal(PriceTextbox.Text);
-                    FlightNOTextbox.Text = flight.FlightNo;
+                        flight.DepartureTime = TimeSpan.Parse(DepartureTimeTextbox.Text);
+                        flight.Seats = Convert.ToInt32(SeatTextbox.Text);
+                        // flight.Status = StatusTextbox.Text;
+                        flight.price = Convert.ToDecimal(PriceTextbox.Text);
+                        FlightNOTextbox.Text = flight.FlightNo;
 
-                    flight.FromCity = UpdateFromCity.Text;
-                    flight.ToCity = UpdateToCityDropDown.Text;
-                    flight.Status = UpdateStatusDrop.Text;
+                        flight.FromCity = UpdateFromCity.Text;
+                        flight.ToCity = UpdateToCityDropDown.Text;
+                        flight.Status = UpdateStatusDrop.Text;
 
-                    cntx.SaveChanges();
-                    ClearFields();
+                        cntx.SaveChanges();
+                        UpdateFlightLabel.Visible = true;
+                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel2();", true);
+                        UpdateFlightLabel.Text = "Form has been submitted successfully.";
+                        ClearFields();
+                    }
                 }
 
-
             }
+
+              catch (Exception ex)
+            {
+                // Log the exception    
+                UpdateFlightError.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel4();", true);
+                UpdateFlightError.Text = "Invalid Input Field Please Check your input field";
+            }
+            finally
+            {
+            }  
 
 
         }
@@ -80,14 +98,14 @@ namespace ProjectAirline
 
         private void ClearFields()
         {
-            FromTextbox.Text = string.Empty;
-            ToTextbox.Text = string.Empty;
+          //  FromTextbox.Text = string.Empty;
+           // ToTextbox.Text = string.Empty;
             DepartureDateTextbox.Text = string.Empty;
             DepartureTimeTextbox.Text = string.Empty;
             FlightNOTextbox.Text = string.Empty;
             ArrivalTimeTextbox.Text = string.Empty;
             SeatTextbox.Text = string.Empty;
-            StatusTextbox.Text = string.Empty;
+            //StatusTextbox.Text = string.Empty;
             PriceTextbox.Text = string.Empty;
             UpdateFromCity.Text = string.Empty;
             UpdateToCityDropDown.Text = string.Empty;
@@ -115,6 +133,8 @@ Price1TextBox.Text = string.Empty;
             //DepartureDateTextbox.Text = GridView1.SelectedRow.Cells[3].Text;
             //DepartureTimeTextbox.Text = GridView1.SelectedRow.Cells[4].Text;
             //FlightNOTextbox.Text = GridView1.SelectedRow.Cells[5].Text;
+            UpdateFlightLabel.Text = "";
+            NewFlight.Text = "";
 
           //  FromTextbox.Text = GridView1.SelectedRow.Cells[2].Text;
             //ToTextbox.Text = GridView1.SelectedRow.Cells[3].Text;
@@ -136,6 +156,9 @@ Price1TextBox.Text = string.Empty;
         {
             AirlineEntities1 db = new AirlineEntities1();
             FlightDetail Flight = new FlightDetail();
+
+
+            UpdateFlightLabel.Text = "";
 
             Flight.FlightNo =TextBox1.Text;
          //   Flight.FromCity = TextBox4.Text;
@@ -270,6 +293,7 @@ Price1TextBox.Text = string.Empty;
                    // NewFlight.Text = "New Flight Added";
                         NewFlight.Visible = true;
                         ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+                        NewFlight.Text = "Form has been submitted successfully.";
 
                     //  flight.DateofDeparture = Convert.ToDateTime(DepartureDateTextbox.Text);
                     // flight.DepartureTime = TimeSpan.Parse(DepartureTimeTextbox.Text);
@@ -277,8 +301,11 @@ Price1TextBox.Text = string.Empty;
             }
             catch (Exception ex)
             {
-                // Log the exception                      
-                ForInputError.Text = "Invalid Input Field + Please Check your input field";
+                // Log the exception        
+                ForInputError.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel3();", true);
+
+                ForInputError.Text = "Invalid Input Field Please Check your input field";
             }
             finally
             {
@@ -346,6 +373,11 @@ Price1TextBox.Text = string.Empty;
         protected void CreateClear_Click(object sender, EventArgs e)
         {
             ClearFields2();
+        }
+
+        protected void DepartureTime1TextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

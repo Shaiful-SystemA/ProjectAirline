@@ -15,22 +15,19 @@
                 width: 162px;
                 text-align: left;
             }
-            .auto-style4 {
-                width: 167px;
-                text-align: left;
-            }
             .auto-style5 {
                 height: 16px;
-                width: 167px;
+                width: 174px;
                 text-align: left;
                 font-size: small;
             }
             .auto-style7 {
                 height: 14px;
+                width: 168px;
             }
             .auto-style9 {
                 height: 14px;
-                width: 167px;
+                width: 174px;
                 text-align: left;
             }
             .auto-style17 {
@@ -151,6 +148,7 @@
     
             .auto-style45 {
                 height: 23px;
+                width: 168px;
             }
             .auto-style46 {
                 height: 23px;
@@ -160,7 +158,7 @@
             }
             .auto-style47 {
                 height: 23px;
-                width: 167px;
+                width: 174px;
                 text-align: left;
             }
             .auto-style49 {
@@ -170,14 +168,10 @@
             }
             .auto-style50 {
                 height: 33px;
-                width: 167px;
+                width: 174px;
                 text-align: left;
             }
-            .auto-style51 {
-                height: 33px;
-                text-align: left;
-            }
-    
+                
             .auto-style52 {
                 font-size: small;
             }
@@ -196,33 +190,24 @@
     
             .auto-style57 {
                 height: 14px;
-                width: 163px;
+                width: 151px;
             }
             .auto-style58 {
                 height: 23px;
-                width: 163px;
-            }
-            .auto-style59 {
-                height: 33px;
-                width: 163px;
-                text-align: left;
-            }
-            .auto-style60 {
-                width: 163px;
-                text-align: left;
+                width: 151px;
             }
             .auto-style61 {
-                width: 163px;
+                width: 151px;
                 height: 16px;
             }
     
             .auto-style62 {
-                width: 167px;
+                width: 174px;
                 text-align: left;
                 font-size: small;
             }
             .auto-style63 {
-                width: 163px;
+                width: 151px;
                 text-align: left;
                 height: 12px;
             }
@@ -239,11 +224,7 @@
             }
             .auto-style69 {
                 height: 12px;
-                width: 167px;
-                text-align: left;
-            }
-            .auto-style70 {
-                height: 12px;
+                width: 174px;
                 text-align: left;
             }
             .auto-style71 {
@@ -256,6 +237,64 @@
                 text-align: left;
                 height: 14px;
                 font-size: small;
+            }
+    
+            .auto-style73 {
+                width: 81px;
+            }
+    
+            .auto-style74 {
+                height: 21px;
+            }
+            .auto-style75 {
+                height: 21px;
+                width: 80px;
+            }
+            .auto-style77 {
+                height: 17px;
+                width: 162px;
+                text-align: left;
+            }
+            .auto-style80 {
+                height: 17px;
+                width: 174px;
+                text-align: left;
+            }
+            .auto-style81 {
+                width: 151px;
+                text-align: left;
+            }
+            .auto-style82 {
+                height: 17px;
+                width: 151px;
+                text-align: left;
+            }
+            .auto-style83 {
+                height: 33px;
+                width: 151px;
+                text-align: left;
+            }
+            .auto-style84 {
+                width: 168px;
+            }
+            .auto-style85 {
+                width: 168px;
+                height: 16px;
+            }
+            .auto-style86 {
+                height: 12px;
+                width: 168px;
+                text-align: left;
+            }
+            .auto-style87 {
+                height: 17px;
+                width: 168px;
+                text-align: left;
+            }
+            .auto-style88 {
+                height: 33px;
+                width: 168px;
+                text-align: left;
             }
     
         </style>
@@ -298,6 +337,28 @@
             document.getElementById("<%=NewFlight.ClientID %>").style.display = "none";
         }, seconds * 1000);
     };
+
+    function HideLabel2() {
+        var seconds = 5;
+        setTimeout(function () {
+            document.getElementById("<%=UpdateFlightLabel.ClientID %>").style.display = "none";
+        }, seconds * 1000);
+    };
+
+    function HideLabel3() {
+        var seconds = 5;
+        setTimeout(function () {
+            document.getElementById("<%=ForInputError.ClientID %>").style.display = "none";
+        }, seconds * 1000);
+    };
+
+    function HideLabel4() {
+        var seconds = 5;
+        setTimeout(function () {
+            document.getElementById("<%=UpdateFlightError.ClientID %>").style.display = "none";
+        }, seconds * 1000);
+    };
+
 </script>
 
 
@@ -313,10 +374,6 @@
 			<div id="top-navigation">
 				Welcome <a href="#"><strong>Administrator</strong></a>
 				<span>|</span>
-				<a href="#">Help</a>
-				<span>|</span>
-				<a href="#">Profile Settings</a>
-				<span>|</span>
 				<a href="#">Log out</a>
 			</div>
 		</div>
@@ -327,10 +384,7 @@
 			<ul>
 			    <li><a href="#" class="active"><span>Dashboard</span></a></li>
 			    <li><a href="#"><span>New Articles</span></a></li>
-			    <li><a href="#"><span>User Management</span></a></li>
-			    <li><a href="#"><span>Photo Gallery</span></a></li>
-			    <li><a href="#"><span>Products</span></a></li>
-			    <li><a href="#"><span>Services Control</span></a></li>
+
 			</ul>
 		</div>
 		<!-- End Main Nav -->
@@ -367,13 +421,13 @@
                         <br />
                         <table dir="ltr" style="width:100%;">
                             <tr>
-                                <td class="auto-style60">&nbsp;</td>
+                                <td class="auto-style81">&nbsp;</td>
                                 <td class="auto-style67">
                                     <strong style="font-size: small">Flight Number</strong></td>
                                 <td class="auto-style62" style="text-align: left">
                         <asp:TextBox ID="FlightNumber1TextBox" runat="server" class="field size3" Width="64px"></asp:TextBox>
                                 </td>
-                                <td>&nbsp;</td>
+                                <td class="auto-style84">&nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="auto-style61">&nbsp;</td>
@@ -389,13 +443,13 @@
                                         <asp:ListItem>Taipei</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
-                                <td class="auto-style1"></td>
+                                <td class="auto-style85"></td>
                             </tr>
                             <tr>
-                                <td class="auto-style60">&nbsp;</td>
+                                <td class="auto-style81">&nbsp;</td>
                                 <td class="auto-style71">
                                     <strong>To City</strong></td>
-                                <td class="auto-style4">
+                                <td class="auto-style30">
                                     <asp:DropDownList ID="ToCity1DropDown" runat="server" class="field size3">
                                         <asp:ListItem></asp:ListItem>
                                         <asp:ListItem>Singapore</asp:ListItem>
@@ -404,7 +458,7 @@
                                         <asp:ListItem>Bangkok</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
-                                <td>&nbsp;</td>
+                                <td class="auto-style84">&nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="auto-style63"></td>
@@ -414,7 +468,7 @@
                                     <asp:TextBox ID="DateOfDeparture1Textbox" runat="server" Width="106px" class="field size3"></asp:TextBox>
                                     <asp:ImageButton ID="ImageButton3" runat="server" Height="16px" ImageUrl="~/css/images/calendaralt.png" OnClick="ImageButton3_Click" Width="27px" />
                                 </td>
-                                <td class="auto-style70">
+                                <td class="auto-style86">
                                     <asp:Calendar ID="Calendar3" runat="server" OnSelectionChanged="Calendar3_SelectionChanged1" Visible="False" BackColor="#FFFFCC" BorderColor="#FFCC66" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#663399" Height="200px" ShowGridLines="True" Width="220px">
                                         <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
                                         <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
@@ -427,25 +481,25 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style60">
+                                <td class="auto-style81">
                                     &nbsp;</td>
                                 <td class="auto-style71">
                                     <strong>Departure Time</strong></td>
-                                <td class="auto-style4">
-                                    <asp:TextBox ID="DepartureTime1TextBox" runat="server" class="field size3" Width="88px"></asp:TextBox>
+                                <td class="auto-style30">
+                                    <asp:TextBox ID="DepartureTime1TextBox" runat="server" class="field size3" Width="88px" OnTextChanged="DepartureTime1TextBox_TextChanged" placeholder="00:00"></asp:TextBox>
                                 </td>
-                                <td style="text-align: left">
+                                <td style="text-align: left" class="auto-style84">
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="DepartureTime1TextBox" ErrorMessage="Invalid Time" ForeColor="#FF3300" style="text-align: left" ValidationExpression="^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style60">&nbsp;</td>
+                                <td class="auto-style81">&nbsp;</td>
                                 <td class="auto-style71">
                                     <strong>Arrival Time</strong></td>
-                                <td class="auto-style4">
-                                    <asp:TextBox ID="ArrivalTime1Texbox" runat="server" class="field size3" Width="88px"></asp:TextBox>
+                                <td class="auto-style30">
+                                    <asp:TextBox ID="ArrivalTime1Texbox" runat="server" class="field size3" Width="88px" placeholder="00:00"></asp:TextBox>
                                 </td>
-                                <td style="text-align: left">
+                                <td style="text-align: left" class="auto-style84">
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="ArrivalTime1Texbox" ErrorMessage="Invalid TIme" ForeColor="Red" ValidationExpression="^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
@@ -482,33 +536,43 @@
                                 <td class="auto-style45">&nbsp;</td>
                             </tr>
                             <tr>
-                                <td class="auto-style59">&nbsp;</td>
+                                <td class="auto-style82"></td>
+                                <td class="auto-style77">
+                                    </td>
+                                <td class="auto-style80">
+                                </td>
+                                <td class="auto-style87">
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style83">&nbsp;</td>
                                 <td class="auto-style49">
                                     &nbsp;</td>
                                 <td class="auto-style50">
+                                    <table style="width:100%;">
+                                        <tr>
+                                            <td class="auto-style75">
                                     <asp:Button ID="BtnCreateFlight1" runat="server" OnClick="BtnCreateFlight1_Click" Text="Submit" CssClass="button"  />
+                                            </td>
+                                            <td class="auto-style74">
+                                    <asp:Button ID="CreateClear" runat="server" CssClass="button" OnClick="CreateClear_Click" Text="Clear " Width="70px" />
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
-                                <td class="auto-style51">
-                                    <asp:Label ID="NewFlight" runat="server" Text="Form has been submitted successfully." Visible="false" ></asp:Label>
-                                </td>
+                                <td class="auto-style88">&nbsp;</td>
                             </tr>
                             <tr>
-                                <td class="auto-style59">&nbsp;</td>
+                                <td class="auto-style83">&nbsp;</td>
                                 <td class="auto-style49">
                                     &nbsp;</td>
                                 <td class="auto-style50">
-                                    <asp:Button ID="CreateClear" runat="server" CssClass="button" OnClick="CreateClear_Click" Text="Clear All" Width="71px" />
+                                    <asp:Label ID="NewFlight" runat="server" Visible="False" ></asp:Label>
+                                    <br />
+                                    <asp:Label ID="ForInputError" runat="server" Visible="False" ></asp:Label>
+                                    <br />
                                 </td>
-                                <td class="auto-style51">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style59">&nbsp;</td>
-                                <td class="auto-style49">
-                                    &nbsp;</td>
-                                <td class="auto-style50">
-                                    <asp:Label ID="ForInputError" runat="server"></asp:Label>
-                                </td>
-                                <td class="auto-style51">&nbsp;</td>
+                                <td class="auto-style88">&nbsp;</td>
                             </tr>
                         </table>
                         <br />
@@ -674,7 +738,7 @@
 					<!-- End Box Head -->
 	  <br />
  
-        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" style="text-align:center" pagesize="15" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging1" Width="697px" RowStyle-CssClass="GvGrid" >
+        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" style="text-align:center" pagesize="15" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging1" Width="750px" RowStyle-CssClass="GvGrid" >
               <Columns>
                       <asp:TemplateField HeaderText="  Index    ">   
          <ItemTemplate>
@@ -726,8 +790,7 @@
         <asp:TextBox ID="FlightNOTextbox" runat="server" class="field size3" Width="64px"></asp:TextBox>
                             </td>
                             <td>
-        <asp:TextBox ID="ToTextbox" runat="server" class="field size3"></asp:TextBox>
-                            </td>
+                                &nbsp;</td>
                         </tr>
                         <tr>
                             <td class="auto-style19"></td>
@@ -745,8 +808,7 @@
                                 </asp:DropDownList>
                             </td>
                             <td class="auto-style1">
-        <asp:TextBox ID="FromTextbox" runat="server"></asp:TextBox>
-                            </td>
+                                &nbsp;</td>
                         </tr>
                         <tr>
                             <td class="auto-style17">&nbsp;</td>
@@ -825,13 +887,12 @@
                         </tr>
                         <tr>
                             <td class="auto-style17">&nbsp;</td>
-                            <td class="auto-style52"><strong>Price </strong></td>
+                            <td class="auto-style52"><strong>Price (SGD) </strong></td>
                             <td class="auto-style18">
         <asp:TextBox ID="PriceTextbox" runat="server" class="field size3" Width="45px"></asp:TextBox>
                             </td>
                             <td>
-        <asp:TextBox ID="StatusTextbox" runat="server"></asp:TextBox>
-                            </td>
+                                &nbsp;</td>
                         </tr>
                         <tr>
                             <td class="auto-style17">&nbsp;</td>
@@ -844,20 +905,40 @@
                             <td class="auto-style28"></td>
                             <td class="auto-style24">
 
-                                <asp:Button ID="UpdateDelete" runat="server" OnClick="UpdateDelete_Click" Text="Delete  " OnClientClick="if ( !confirm('Are you sure you want to delete ? ')) return false;" CssClass="button" Width="69px"  />
+                                <table style="width:100%;">
+                                    <tr>
+                                        <td class="auto-style73">
+        <asp:Button ID="Update" runat="server" OnClick="Update_Click" Text="Update" CssClass="button"  />
+                                        </td>
+                                        <td>
+
+                                <asp:Button ID="UpdateDelete" runat="server" OnClick="UpdateDelete_Click" Text="Delete  " OnClientClick="if ( !confirm('Are you sure you want to delete ? ')) return false;" CssClass="button" Width="70px"  />
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style73">&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style73">&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </table>
 
                             </td>
-                            <td class="auto-style25"></td>
+                            <td class="auto-style25">&nbsp;</td>
                         </tr>
                         <tr>
                             <td class="auto-style22"></td>
                             <td class="auto-style28"></td>
                             <td class="auto-style24">
-        <asp:Button ID="Update" runat="server" OnClick="Update_Click" Text="Update" CssClass="button"  />
+                                <asp:Label ID="UpdateFlightLabel" runat="server"   ForeColor="Green" Font-Bold="true" Visible = "false" ></asp:Label>
+                                <br />
+                                <asp:Label ID="UpdateFlightError" runat="server" Visible="false"></asp:Label>
                             </td>
                             <td class="auto-style25">
-        <asp:Button ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" />
-                            </td>
+                                &nbsp;</td>
                         </tr>
                     </table>
                     <center>
@@ -950,5 +1031,15 @@
 </div>
   
     <!-- End Container -->
+
+    
+<!-- Footer -->
+<div id="footer">
+	<div class="shell">
+		<span class="left">&copy; 2016 - Wiki Airlines</span>
+
+	</div>
+</div>
+<!-- End Footer -->
 </body>
 </html>

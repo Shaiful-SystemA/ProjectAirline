@@ -26,5 +26,6 @@ namespace ProjectAirline
         }
     
         public virtual DbSet<FlightDetail> FlightDetails { get; set; }
+        public virtual DbSet<TrasactionDetail> TrasactionDetails { get; set; }
     }
 }

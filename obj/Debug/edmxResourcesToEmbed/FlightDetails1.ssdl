@@ -15,7 +15,20 @@
     <Property Name="Status" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
+  <EntityType Name="TrasactionDetails">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="int" Nullable="false" />
+    <Property Name="Userid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookingDate" Type="date" Nullable="false" />
+    <Property Name="FlightNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DepartureDate" Type="date" Nullable="false" />
+    <Property Name="TotalNoOfPassengers" Type="int" />
+    <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="AirlineModelStoreContainer">
     <EntitySet Name="FlightDetails" EntityType="Self.FlightDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrasactionDetails" EntityType="Self.TrasactionDetails" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
